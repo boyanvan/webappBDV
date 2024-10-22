@@ -13,7 +13,7 @@ session_start();
 </head>
 <body>
     <header>
-        <a href="index.php" class="home-button">Home</a>
+        <!-- <a href="index.php" class="home-button">Home</a> -->
         <h1>Welcome to the News Forum</h1>
         <!-- Display logout button if user is logged in -->
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
@@ -28,21 +28,40 @@ session_start();
         </nav>
     </header>
     <main>
-        <section>
+        <section id="#articlesHolder">
             <h2>Latest News</h2>
-            <article>
-                <h3>Article Title 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </article>
-            <article>
-                <h3>Article Title 2</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </article>
-            <!-- Add more articles as needed -->
+            <?php
+                $fileName = "articlesDatabase.txt";
+                
+                if (file_exists($fileName)) {
+                    $content = file_get_contents($fileName);
+                
+                    $lines = explode("\n", $content);
+    
+                    for ($i = 0; $i < count($lines); $i += 4) {
+                        $article = "<article>";
+
+                        $title = substr($lines[$i], 7);
+                        $text = substr($lines[$i + 1],6);
+                        $author = substr($lines[$i + 2],8);
+
+                        $article .= "<h3>" . $title ."</h3>";
+                        $article .= "<p>". $text ."</p>";
+                        $article .= "<p class=\"article__author\">". $author ."</p>";
+
+                        $article .= "</article>";
+
+                        echo $article;
+                    }
+                }
+            ?>
+            <!-- mqsto za novinite -->
         </section>
     </main>
     <footer>
         <p>&copy; 2024 News Forum</p>
     </footer>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

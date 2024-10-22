@@ -8,6 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
+    // Define regex patterns
+    $usernamePattern = "/^[a-zA-Z0-9_]{3,15}$/"; // Username: 3-15 characters, letters, numbers, underscores
+    $passwordPattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/"; // Password: min 8 chars, 1 uppercase, 1 lowercase, 1 digit
+
+    // Validate username with regex
+    if (!preg_match($usernamePattern, $username)) {
+        echo "Invalid username. It must be 3-15 characters long and can only contain letters, numbers, and underscores.<br>";
+    }
+
+    // Validate password with regex
+    if (!preg_match($passwordPattern, $password)) {
+        echo "Invalid password. It must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one number.<br>";
+    }
+
     // Basic validation to ensure fields are not empty
     if (!empty($username) && !empty($password)) {
         // Path to the users.txt file

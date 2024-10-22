@@ -1,0 +1,15 @@
+title: Hello world!
+text: Lorem Ipsum badldaldsaldlasjsdfkop dsf jsd
+author: Alexandar Milanov
+
+title: End of the world
+text: kalendara na maite svurshi!!!!!!!!!!!!!!
+author: Chicho Gosho
+
+title: Milen Popov e bremenen
+text: ne se znae koq e maikata, no se predpolaga, che e zabremenql ot svetiq duh
+author: big brother
+
+title: komunizma pak e na moda!
+text: Mechtata na Karl Marx se sbudva i komunizma otnovo e na moda.
+author: Lenin

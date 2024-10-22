@@ -1,2 +1,0 @@
-john,john@example.com,password123
-jane,jane@example.com,securepass
