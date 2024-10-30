@@ -30,32 +30,6 @@ session_start();
     <main>
         <section id="#articlesHolder">
             <h2>Latest News</h2>
-            <?php
-                $fileName = "articlesDatabase.txt";
-                
-                if (file_exists($fileName)) {
-                    $content = file_get_contents($fileName);
-                
-                    $lines = explode("\n", $content);
-    
-                    for ($i = 0; $i < count($lines); $i += 4) {
-                        $article = "<article>";
-
-                        $title = substr($lines[$i], 7);
-                        $text = substr($lines[$i + 1],6);
-                        $author = substr($lines[$i + 2],8);
-
-                        $article .= "<h3>" . $title ."</h3>";
-                        $article .= "<p>". $text ."</p>";
-                        $article .= "<p class=\"article__author\">". $author ."</p>";
-
-                        $article .= "</article>";
-
-                        echo $article;
-                    }
-                }
-            ?>
-            <!-- mqsto za novinite -->
         </section>
     </main>
     <footer>

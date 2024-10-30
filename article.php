@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Article Page</title>
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- Add your CSS file here -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
@@ -15,47 +15,20 @@
         </nav>
     </header>
 
-    <main>
-        <?php
-        // Define the file path to the article text file
-        $file = 'article.txt';
-
-        // Check if the file exists
-        if (file_exists($file)) {
-            // Read the content of the file
-            $content = file_get_contents($file);
-
-            // Break content into lines
-            $lines = explode("\n", $content);
-
-            // Display the content line by line, formatting as needed
-            foreach ($lines as $line) {
-                // If the line starts with "Title:", display it as a <h2>
-                if (strpos($line, 'Title:') === 0) {
-                    $title = substr($line, 7);
-                    echo "<title>" . $title . "</title>";
-                    
-                    echo "<h2>" . $title . "</h2>";
-                }
-                // If the line starts with "Content:", display it as a <h3>
-                elseif (strpos($line, 'Content:') === 0) {
-                    echo "<h3>Content</h3>";
-                    echo "<p>" . substr($line, 9) . "</p>";
-                }
-                // For all other lines, display them as paragraphs
-                else {
-                    echo "<p>" . $line . "</p>";
-                }
-            }
-        } else {
-            // If the file does not exist, show an error message
-            echo "<p>Sorry, the article could not be found.</p>";
-        }
-        ?>
+    <main style="margin-right: 100pt; margin-left: 100pt">
+        <h1 style="margin-top: 25pt; text-align: center; font-size: 50pt" id="#article__title">hellow</h1>
+        <p style="margin-top: 40pt; text-align:left; font-size: 25pt; word-wrap:break-all;" id="#article__content">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Eligendi reiciendis quas nihil delectus quos fugiat pariatur. 
+            Unde nihil impedit aspernatur doloribus distinctio dolor maiores, aperiam esse, perferendis, adipisci ipsa ea.
+        </p>
+        <p style="font-style:italic; text-align:right" id="#article__author">Author: milanov</p>
     </main>
 
     <footer>
         <p>&copy; 2024 News Forum</p>
     </footer>
+
+    <script src="assets/js/generateArticle.js"></script>
 </body>
 </html>

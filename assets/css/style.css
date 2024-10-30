@@ -137,6 +137,9 @@ article:hover {
     color: purple;
     text-align: right;
     font-weight: bold;
+    font-size: 10pt;
+    margin-top: -5pt;
+    margin-bottom: -5pt;
 }
 
 h2 {
